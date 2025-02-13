@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductItem from "./ProductItem";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import date from "../Utils/Date";
 const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [error, setError] = useState("");
+  // Access the route parameter
   const param = useParams();
   const id = param.id;
   useEffect(() => {
@@ -25,6 +25,7 @@ const ProductDetail = () => {
         setError(err.message);
       });
   }, [id]);
+
   if (error) {
     return (
       <>
@@ -59,6 +60,7 @@ const ProductDetail = () => {
             {product.returnPolicy}
           </li>
         </ul>
+        {/* Review section  */}
         <ul className="reviewBlock">
           <li
             style={{
